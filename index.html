@@ -1,0 +1,59 @@
+<html>
+<head>
+<style>
+p {
+  text-align: center;
+  font-size: 40vw;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body onclick="init()">
+
+<p id="time"></p>
+
+<script>
+  document.querySelector('#time').textContent = "01" + ":" + "00";
+  var stopTime = true;
+  function init() {
+    stopTime = !stopTime;
+    if (!stopTime) {
+        startTimer(59, document.querySelector('#time'));
+    } else {
+        exit();
+    }
+  }
+
+  function startTimer(duration, display) {
+      var timer = duration, minutes, seconds;
+      setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          if(stopTime) {
+            exit();
+          }
+          display.textContent = minutes + ":" + seconds;
+
+          if (minutes == 0 && seconds == 0) {
+            display.textContent = "00:00";
+            exit();
+          }
+
+          if (--timer < 0) {
+              timer = duration;
+          }
+      }, 1000);
+  }
+
+  // window.onclick = function () {
+  //     var oneMinutes = 59,
+  //         display = document.querySelector('#time');
+  //     startTimer(oneMinutes, display);
+  // };
+</script>
+
+</body>
+</html>

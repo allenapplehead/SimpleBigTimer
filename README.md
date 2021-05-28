@@ -1,6 +1,7 @@
 # SimpleBigTimer
 
-A quick timer I scrapped up in preparation for VEX Worlds.
+A quick and simple 1 minute timer I scrapped up the night before VEX Worlds :/.
+See it live at: https://bigtimer.netlify.app/
 
 ## Purpose:
 * Have massive font, scaled to screen size
